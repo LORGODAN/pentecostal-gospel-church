@@ -1,0 +1,993 @@
+/* ==========================================
+   PENTECOSTAL GOSPEL CHURCH WEBSITE STYLES
+   Colors: White (#FFFFFF) and Maroon (#800020)
+   ========================================== */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --maroon: #800020;
+    --maroon-dark: #5c0017;
+    --maroon-light: #a6002a;
+    --white: #FFFFFF;
+    --light-gray: #f8f8f8;
+    --gray: #666666;
+    --dark-gray: #333333;
+    --shadow: rgba(128, 0, 32, 0.1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================
+   NAVIGATION BAR
+   ========================================== */
+
+.navbar {
+    background: var(--white);
+    box-shadow: 0 2px 10px var(--shadow);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    /* NOTE: Place your church logo image in the same folder as this HTML file 
+       and name it 'logo.png' or update the src in HTML */
+}
+
+.church-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--maroon);
+    letter-spacing: 0.5px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--maroon);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--maroon);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger {
+    width: 25px;
+    height: 3px;
+    background: var(--maroon);
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+/* Mobile Menu Active State */
+.mobile-menu-toggle.active .hamburger:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-menu-toggle.active .hamburger:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active .hamburger:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(128, 0, 32, 0.7), rgba(92, 0, 23, 0.8)), 
+                url('hero-church.jpg') center/cover no-repeat;
+    /* NOTE: Replace 'hero-church.jpg' with your church photo showing:
+       - Church building exterior
+       - Congregation worshiping
+       - Church interior
+       Recommended size: 1920x1080px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    position: relative;
+    margin-top: 70px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(128, 0, 32, 0.3);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+.hero-location {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-location i {
+    margin-right: 8px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+
+.btn {
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--maroon);
+    color: var(--white);
+    border-color: var(--maroon);
+}
+
+.btn-primary:hover {
+    background: var(--maroon-dark);
+    border-color: var(--maroon-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(128, 0, 32, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.btn-secondary:hover {
+    background: var(--white);
+    color: var(--maroon);
+}
+
+/* ==========================================
+   SECTION STYLES
+   ========================================== */
+
+section {
+    padding: 80px 0;
+}
+
+/* ==========================================
+   PASTORS SECTION
+   ========================================== */
+
+   .pastors {
+    background: var(--white);
+    padding: 80px 0;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--gray);
+    margin-top: -2rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pastors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.pastor-card {
+    background: var(--light-gray);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px var(--shadow);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.pastor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(128, 0, 32, 0.2);
+}
+
+.pastor-image {
+    position: relative;
+    overflow: hidden;
+    height: 350px;
+    background: var(--gray);
+}
+
+.pastor-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.4s ease;
+    /* NOTE: Pastor images should be:
+       - Professional headshots or upper body photos
+       - Well-lit, high quality
+       - Centered composition
+       - Recommended size: 600x700px (portrait orientation)
+       - Format: JPG
+       
+       Image filenames needed:
+       1. pastor-senior.jpg (Senior Pastor)
+       2. pastor-associate.jpg (Associate Pastor)
+       3. pastor-youth.jpg (Youth Pastor)
+       4. pastor-children.jpg (Children's Ministry Director)
+    */
+}
+
+.pastor-card:hover .pastor-image img {
+    transform: scale(1.1);
+}
+
+.pastor-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(128, 0, 32, 0.9));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.pastor-card:hover .pastor-overlay {
+    opacity: 1;
+}
+
+.pastor-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.pastor-social-link {
+    background: var(--white);
+    color: var(--maroon);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.pastor-card:hover .pastor-social-link {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.pastor-social-link:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.pastor-social-link:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.pastor-social-link:hover {
+    background: var(--maroon);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.pastor-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.pastor-name {
+    font-size: 1.5rem;
+    color: var(--maroon);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.pastor-title {
+    font-size: 1rem;
+    color: var(--maroon-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.pastor-bio {
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+    line-height: 1.6;
+}
+
+/* Mobile Responsive Styles for Pastors Section */
+@media screen and (max-width: 768px) {
+    .pastors-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .pastor-image {
+        height: 300px;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .pastor-image {
+        height: 350px;
+    }
+
+    .pastor-name {
+        font-size: 1.3rem;
+    }
+
+    .pastor-title {
+        font-size: 0.85rem;
+    }
+
+    .pastor-bio {
+        font-size: 0.9rem;
+    }
+}
+
+/* END OF PASTORS SECTION STYLES */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--maroon);
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--maroon);
+    border-radius: 2px;
+}
+
+/* ==========================================
+   ABOUT SECTION
+   ========================================== */
+
+.about {
+    background: var(--light-gray);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px var(--shadow);
+    /* NOTE: Replace 'about-church.jpg' with photo showing:
+       - Church interior
+       - Pastor/leaders
+       - Congregation fellowship
+       Recommended size: 800x600px */
+}
+
+.about-text h3 {
+    color: var(--maroon);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.values-list {
+    list-style: none;
+}
+
+.values-list li {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.values-list i {
+    color: var(--maroon);
+    margin-right: 10px;
+}
+
+/* ==========================================
+   SERVICES SECTION
+   ========================================== */
+
+.services {
+    background: var(--white);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--maroon);
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: var(--maroon);
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    color: var(--maroon);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.service-time {
+    font-weight: 600;
+    color: var(--dark-gray);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* ==========================================
+   MINISTRIES SECTION
+   ========================================== */
+
+.ministries {
+    background: var(--light-gray);
+}
+
+.ministries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.ministry-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.ministry-card:hover {
+    transform: translateY(-10px);
+}
+
+.ministry-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    /* NOTE: Replace ministry images:
+       - ministry-children.jpg (children's activities)
+       - ministry-youth.jpg (youth gathering)
+       - ministry-worship.jpg (worship team)
+       - ministry-outreach.jpg (community service)
+       Recommended size: 600x400px each */
+}
+
+.ministry-content {
+    padding: 1.5rem;
+}
+
+.ministry-content h3 {
+    color: var(--maroon);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+/* ==========================================
+   EVENTS SECTION
+   ========================================== */
+
+.events {
+    background: var(--white);
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.event-card {
+    display: flex;
+    gap: 1.5rem;
+    background: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--maroon);
+    transition: all 0.3s ease;
+}
+
+.event-card:hover {
+    box-shadow: 0 10px 25px var(--shadow);
+    transform: translateX(5px);
+}
+
+.event-date {
+    background: var(--maroon);
+    color: var(--white);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 80px;
+}
+
+.event-day {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.event-month {
+    display: block;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.event-details h3 {
+    color: var(--maroon);
+    margin-bottom: 0.5rem;
+}
+
+.event-details p {
+    margin-bottom: 0.3rem;
+}
+
+.event-details i {
+    color: var(--maroon);
+    margin-right: 5px;
+}
+
+/* ==========================================
+   CONTACT SECTION
+   ========================================== */
+
+.contact {
+    background: var(--light-gray);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.contact-icon {
+    background: var(--maroon);
+    color: var(--white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.contact-item h3 {
+    color: var(--maroon);
+    margin-bottom: 0.5rem;
+}
+
+.contact-item .note {
+    font-size: 0.85rem;
+    color: var(--gray);
+    font-style: italic;
+}
+
+.social-links h3 {
+    color: var(--maroon);
+    margin-bottom: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    background: var(--maroon);
+    color: var(--white);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: var(--maroon-dark);
+    transform: translateY(-3px);
+}
+
+/* Contact Form */
+.contact-form {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow);
+}
+
+.contact-form h3 {
+    color: var(--maroon);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--maroon);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.footer {
+    background: var(--maroon);
+    color: var(--white);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-logo .logo-img {
+    height: 60px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-logo p {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN - MOBILE
+   ========================================== */
+
+@media screen and (max-width: 768px) {
+    /* Mobile Navigation */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        max-width: 300px;
+        height: calc(100vh - 70px);
+        background: var(--white);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        gap: 1rem;
+        box-shadow: -5px 0 15px var(--shadow);
+        transition: right 0.3s ease;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-link {
+        width: 100%;
+        padding: 1rem 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .church-name {
+        font-size: 0.9rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        height: 80vh;
+        margin-top: 70px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-location {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    /* About Section */
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    /* Services Grid */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Ministries Grid */
+    .ministries-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Events Grid */
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Contact Section */
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* Padding Adjustments */
+    section {
+        padding: 60px 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .logo-img {
+        height: 40px;
+    }
+
+    .church-name {
+        font-size: 0.75rem;
+    }
+}
+
+/* ==========================================
+   SCROLL ANIMATIONS (Optional Enhancement)
+   ========================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
